@@ -4,11 +4,11 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.config import Config
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.core.window import Window
 
 kivy.require('1.9.0')
 
-Config.set('graphics', 'width', '400')
-Config.set('graphics', 'height', '600')
+Window.size=800,600
 
 class CalcGridlayout(GridLayout):
     def calculate(self, calculation):
