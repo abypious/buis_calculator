@@ -5,7 +5,13 @@
 	font_size: 30
     background_color:[23,33,48,0.1]
     size:50,20
-	
+
+<MainScreen>:
+    GridLayout:
+        cols: 1
+        Button:
+            text: 'Go to Calculator'
+            on_release: app.switch_to_calculator()
 
 # Define id so I can refer to the CalcGridLayout
 # class functions
