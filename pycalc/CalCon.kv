@@ -6,12 +6,19 @@
     background_color:[23,33,48,0.1]
     size:50,20
 
+<CustomButton@Button>:
+    background_color: 0.2, 0.6, 1, 1  # Button background color (R, G, B, A)
+    color: 1, 1, 1, 1  # Text color (R, G, B, A)
+    font_size: 20  # Font size
+    size_hint_y: None  # Allow the button to have a fixed height
+    height: '48dp'  # Height of the button
+
 <MainScreen>:
     GridLayout:
         cols: 1
-        Button:
+        CustomButton:
             text: 'Go to Calculator'
-            on_release: app.switch_to_calculator()
+            on_release: app.switch_to_calculator()  # Action when released
 
 # Define id so I can refer to the CalcGridLayout
 # class functions
