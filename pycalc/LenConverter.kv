@@ -25,33 +25,17 @@
 	spacing:5
 
 
-    BoxLayout:
-        padding:0
-		spacing:0
-		TextInput:
-			id: entry
-			font_size: 50
-			multiline: False 
-			readonly:True
-			background_color:rgba(1,2,3,0.1)
-	BoxLayout:
-		padding:10
-		spacing:10	
-		ConvertButton:
-			text:"helo"
-			on_release:
-	BoxLayout:
-        padding:0
-		spacing:0
-		TextInput:
-			id: entry
-			font_size: 50
-			multiline: False 
-			readonly:True
-			background_color:rgba(1,2,3,0.1)
-	BoxLayout:
-		padding:10
-		spacing:10	
-		ConvertButton:
-			text:"helo"
-			on_release:
+    Button:
+        text: 'My first Item'
+        size_hint_y: None
+        height: 44
+        on_release: root.select('item1')
+    Label:
+        text: 'Unselectable item'
+        size_hint_y: None
+        height: 44
+    Button:
+        text: 'My second Item'
+        size_hint_y: None
+        height: 44
+        on_release: root.select('item2')
