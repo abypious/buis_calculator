@@ -30,20 +30,43 @@
 			pos:self.pos
 			radius:[10]	
 
-<CustomButton@Button>:
-    font_size: 30
-    background_color:[23,33,48,0.1]
-    size:[5,20]
+<MainScreenButton@Button>:
+	font_size:30
+    background_color:(0,0,0,0)
+	background_normal:''
+	canvas.before:
+		Color:
+			rgba:hex('#358eb8')
+		RoundedRectangle:
+			size:self.size
+			pos:self.pos
+			radius:[18]
+
+
 
 <MainScreen>:
     GridLayout:
         cols: 1
-        CustomButton:
-            text: 'Go to Calculator'
+		spacing:[60,60]
+		padding:[60,60,60,60]
+
+		Label:
+			text:'CalCon'
+			color:hex('#358eb8')
+			font_size:45
+        MainScreenButton:
+            text: 'Calculator'
             on_release: app.switch_to_calculator()
-		CustomButton:
-            text: 'Go to Length Converter'
-            on_release: app.switch_to_length_converter()	  # Action when released
+		MainScreenButton:
+            text: 'Length Converter'
+            on_release: app.switch_to_length_converter()
+		MainScreenButton:
+            text: 'Currency Converter'
+            on_release: app.switch_to_currency_converter()
+		MainScreenButton:
+            text: 'Weight Converter'
+            on_release: app.switch_to_calculator()	
+				  
 
 # Define id so I can refer to the CalcGridLayout
 # class functions

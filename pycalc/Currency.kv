@@ -3,7 +3,10 @@
 #:import win kivy.core.window
 #:import hex kivy.utils.get_color_from_hex
 
-<ConvertButton@Button>:
+
+
+
+<CConvertButton@Button>:
     font_size: 30
     background_color:[23,33,48,0.1]
     size:[5,20]
@@ -16,7 +19,7 @@
 			radius:[10]
 
 
-<ConverterGridLayout>:
+<CConverterGridLayout>:
     id: converter
 	display: entry
 	rows: 6
@@ -33,3 +36,10 @@
 			multiline: False 
 			readonly:True
 			background_color:rgba(1,2,3,0.1)
+            hint_text:'Currency'
+	BoxLayout:
+		padding:10
+		spacing:10	
+		CConvertButton:
+			text:"hel"
+			on_release:
