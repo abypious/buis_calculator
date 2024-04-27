@@ -1,3 +1,4 @@
+
 #:kivy 1.0
 #:import kivy kivy
 #:import win kivy.core.window
@@ -33,3 +34,24 @@
 			multiline: False 
 			readonly:True
 			background_color:rgba(1,2,3,0.1)
+	BoxLayout:
+		padding:10
+		spacing:10	
+		ConvertButton:
+			text:"helo"
+			on_release:
+	BoxLayout:
+        padding:0
+		spacing:0
+		TextInput:
+			id: entry
+			font_size: 50
+			multiline: False 
+			readonly:True
+			background_color:rgba(1,2,3,0.1)
+	BoxLayout:
+		padding:10
+		spacing:10	
+		ConvertButton:
+			text:"helo"
+			on_release:
