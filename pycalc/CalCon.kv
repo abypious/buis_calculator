@@ -24,11 +24,73 @@
     size:[5,20]
 	canvas.before:
 		Color:
-			rgba:hex('##3f3e40')
+			rgba:hex('#81b01e')
+		RoundedRectangle:
+			size:self.size
+			pos:self.pos
+			radius:[10]			
+
+<ConvertButton@Button>:
+	font_size: 30
+    background_color:[23,33,48,0.1]
+    size: 75, 50
+	spacing:50
+	padding:[50,50,100,100]	
+	canvas.before:
+		Color:
+			rgba:hex('#4681f4')
+		RoundedRectangle:
+			size:self.size
+			pos:self.pos
+			radius:[10]		
+
+
+<ConvertInput@TextInput>:
+	id:ti
+	background_color:hex('#000000')
+    hint_text:'0'
+    hint_text_color:[0.5, 0.5, 0.5, 1]  
+    foreground_color:[1, 1, 1, 1]
+	cursor_color:[1, 1, 1, 1]
+	input_filter:"int"
+	base_direction: 'rtl'
+	pos:(200, 200)
+	spacing:10
+	padding:[10,10,10,10]
+
+<ConvertOutButton@Button>:
+	font_size: 30
+    background_color:[23,33,48,0.1]
+    size: 75, 50
+	spacing:50
+	padding:[1150,1150,1100,1100]	
+	canvas.before:
+		Color:
+			rgba:hex('#4681f4')
 		RoundedRectangle:
 			size:self.size
 			pos:self.pos
 			radius:[10]	
+
+<ConvertOutput@Label>:
+	id:oplabel
+	color:hex('#358eb8')
+	text:'output'
+
+
+
+<ConvertSpinner@Spinner>:
+	background_color:[23,33,48,0.1]
+	background_normal:''
+	canvas.before:
+		Color:
+			rgba:hex('#4681f4')
+		RoundedRectangle:
+			size:self.size
+			pos:self.pos
+			radius:[10]		
+	
+
 
 <MainScreenButton@Button>:
 	font_size:30
@@ -213,9 +275,81 @@
 					pos:self.pos
 					radius:[10]	
 
-	 
+<CurrencyConverterGridlayout>:
+	id:currecy
+	rows:3
+	cols:1
+	spacing:[160,160]
+	padding:[160,100,160,60]
+	BoxLayout:	
+		ConvertSpinner:
+			id:Spinner_id_one
+			text:"From"
+			values:['EUR','USD','GBP','JPY','INR']
+
+		ConvertInput:
+			id:currecy_ip
+		ConvertSpinner:
+			id:Spinner_id_two
+			text:"To"
+			values:['EUR','USD','GBP','JPY','INR']	
+	BoxLayout:	
+		ConvertOutput:
+		
+	BoxLayout:
+		ConvertOutButton:
+			text:"Convert"
+			on_release:currecy.convert()
 
 
 
+<ConverterGridlayout>:
+	rows:3
+	cols:1
+	spacing:[160,160]
+	padding:[160,100,160,60]
+	BoxLayout:	
+		ConvertSpinner:
+			id:Spinner_id_one
+			text:"From"
+			values:['Millimeters','Centimeters','Meters','Kilometers']
+
+		ConvertInput:
+			id:currecy_ip
+		ConvertSpinner:
+			id:Spinner_id_two
+			text:"To"
+			values:['Millimeters','Centimeters','Meters','Kilometers']	
+	BoxLayout:	
+		ConvertOutput:
+		
+	BoxLayout:
+		ConvertOutButton:
+			text:"Convert"
+			on_release:root.convert()
 
 
+<TempConverterGridlayout>:
+	rows:3
+	cols:1
+	spacing:[160,160]
+	padding:[160,100,160,60]
+	BoxLayout:	
+		ConvertSpinner:
+			id:Spinner_id_one
+			text:"From"
+			values:['Celsius','Fahrenheit','Kelvin']
+
+		ConvertInput:
+			id:currecy_ip
+		ConvertSpinner:
+			id:Spinner_id_two
+			text:"To"
+			values:['Celsius','Fahrenheit','Kelvin']
+	BoxLayout:	
+		ConvertOutput:
+		
+	BoxLayout:
+		ConvertOutButton:
+			text:"Convert"
+			on_release:temp_converter.convert()
