@@ -1,57 +1,10 @@
-
 #:kivy 1.0
 #:import kivy kivy
 #:import win kivy.core.window
 #:import hex kivy.utils.get_color_from_hex
 
-<ConvertButton@Button>:
-    font_size: 30
-    background_color:[23,33,48,0.1]
-    size:[5,20]
-	canvas.before:
-		Color:
-			rgba:[23,33,48,0.1]
-		RoundedRectangle:
-			size:self.size
-			pos:self.pos
-			radius:[10]
 
 
-<ConverterGridLayout>:
-    id: converter
-	display: entry
-	rows: 6
-	padding:[15,5,15,50]
-	spacing:5
 
 
-    BoxLayout:
-        padding:0
-		spacing:0
-		TextInput:
-			id: entry
-			font_size: 50
-			multiline: False 
-			readonly:True
-			background_color:rgba(1,2,3,0.1)
-	BoxLayout:
-		padding:10
-		spacing:10	
-		ConvertButton:
-			text:"helo"
-			on_release:
-	BoxLayout:
-        padding:0
-		spacing:0
-		TextInput:
-			id: entry
-			font_size: 50
-			multiline: False 
-			readonly:True
-			background_color:rgba(1,2,3,0.1)
-	BoxLayout:
-		padding:10
-		spacing:10	
-		ConvertButton:
-			text:"helo"
-			on_release:
+
