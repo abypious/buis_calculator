@@ -5,6 +5,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.textinput import TextInput
 from kivy.uix.dropdown import DropDown
 from kivy.core.window import Window
+from kivy.lang import Builder
 
 Window.size=393,750
 
@@ -41,6 +42,10 @@ class Dropdown():
         dropdown.add_widget(btn)
 
 
+
+class ConverterGridlayout(GridLayout):
+    def display(self):
+        self.display.text+=text
 
 class ConverterGridlayout(GridLayout):
     def display(self):
@@ -124,7 +129,12 @@ class ConverterScreen(Screen):
         layout = GridLayout(cols=1)
         layout.add_widget(ConverterGridlayout())
         self.add_widget(layout)
-
+class CurrencyConverterScreen(Screen):
+    def __init__(self, **kwargs):
+        super(ConverterScreen, self).__init__(**kwargs)
+        layout = GridLayout(cols=1)
+        layout.add_widget(CurrencyConverterGridlayout())
+        self.add_widget(layout)
 
 class MainScreen(Screen):
     pass
@@ -143,6 +153,5 @@ class CalConApp(App):
 
     def switch_to_length_converter(self):
         self.root.current = 'length_converter'
-
 if __name__ == '__main__':
     CalConApp().run()
