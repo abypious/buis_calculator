@@ -16,8 +16,6 @@ from kivy.properties import ObjectProperty
 Config.set('graphics', 'resizable', 'True')
 
 
-Builder.load_file('LenConverter.kv')
-Builder.load_file('Currency.kv')
 
 class CalCon_kv(GridLayout): 
     pass
@@ -38,7 +36,8 @@ class CalcGridlayout(GridLayout):
 class CurrencyConverterGridlayout(GridLayout):
     pass
 
-    
+    def spinner_clicked(self,values):
+        print(currecy_ip.text)
 
     '''
     

@@ -275,7 +275,7 @@
 					radius:[10]	
 
 <CurrencyConverterGridlayout>:
-	id:currecy
+	id:currency
 	rows:3
 	cols:1
 	spacing:[160,160]
@@ -285,6 +285,7 @@
 			id:Spinner_id_one
 			text:"From"
 			values:['EUR','USD','GBP','JPY','INR']
+			on_text:currency.spinner_clicked(Spinner_id_one.text)
 
 		ConvertInput:
 			id:currecy_ip
@@ -315,6 +316,7 @@
 
 		ConvertInput:
 			id:currecy_ip
+			
 		ConvertSpinner:
 			id:Spinner_id_two
 			text:"To"
