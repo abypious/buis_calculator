@@ -24,7 +24,7 @@
     size:[5,20]
 	canvas.before:
 		Color:
-			rgba:hex('#81b01e')
+			rgba:hex('#5c5c5c')
 		RoundedRectangle:
 			size:self.size
 			pos:self.pos
@@ -46,7 +46,6 @@
 
 
 <ConvertInput@TextInput>:
-	id:ti
 	background_color:hex('#000000')
     hint_text:'0'
     hint_text_color:[0.5, 0.5, 0.5, 1]  
@@ -299,7 +298,7 @@
 	BoxLayout:
 		ConvertOutButton:
 			text:"Convert"
-			on_release:currecy.convert()
+			
 
 
 
@@ -326,12 +325,9 @@
 	BoxLayout:
 		ConvertOutButton:
 			text:"Convert"
-			on_release:root.convert()
 
 
 <TempConverterGridlayout>:
-	rows:3
-	cols:1
 	spacing:[160,160]
 	padding:[160,100,160,60]
 	BoxLayout:	
@@ -352,4 +348,3 @@
 	BoxLayout:
 		ConvertOutButton:
 			text:"Convert"
-			on_release:temp_converter.convert()

@@ -36,7 +36,11 @@ class CalcGridlayout(GridLayout):
                 self.display.text = 'Error'
 
 class CurrencyConverterGridlayout(GridLayout):
+    pass
+
     
+
+    '''
     
     Spinner_id_one = ObjectProperty()
     Spinner_id_two = ObjectProperty()
@@ -93,15 +97,15 @@ class CurrencyConverterGridlayout(GridLayout):
         converted_amount = amount * conversion_rates() # Example conversion rate for USD to EUR
 
         self.result_label.text =amount_str
-
+'''
     
     
 
 class ConverterGridlayout(GridLayout):
-    
+    pass
+    '''
     def __init__(self, **kwargs):
         super(ConverterGridlayout, self).__init__(**kwargs)
-        self.cols = 2
         self.input_unit = TextInput(hint_text='Input', multiline=False)
         self.add_widget(self.input_unit)
         self.input_dropdown = DropDown()
@@ -154,8 +158,12 @@ class ConverterGridlayout(GridLayout):
         output_value = input_in_meters / conversion_factors[output_unit]
 
         return output_value
+        '''
     
 class TempConverterGridlayout(GridLayout):
+    pass
+    
+    '''
     conversion_rates = {
         'Celsius': {'Celsius': 1, 'Fahrenheit': 9/5, 'Kelvin': 1},
         'Fahrenheit': {'Celsius': 5/9, 'Fahrenheit': 1, 'Kelvin': 5/9},
@@ -164,7 +172,6 @@ class TempConverterGridlayout(GridLayout):
 
     def __init__(self, **kwargs):
         super(TempConverterGridlayout, self).__init__(**kwargs)
-        self.cols = 2
         self.input_unit = TextInput(hint_text='Input', multiline=False)
         self.add_widget(self.input_unit)
         self.input_dropdown = DropDown()
@@ -209,7 +216,7 @@ class TempConverterGridlayout(GridLayout):
         # Perform temperature conversion based on the conversion_rates dictionary
         input_in_base = input_value * self.conversion_rates[input_unit][output_unit]
         return input_in_base
-
+    '''
 
 class CalculatorScreen(Screen):
     def __init__(self, **kwargs):
