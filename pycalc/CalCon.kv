@@ -280,6 +280,7 @@
 	cols:1
 	spacing:[160,160]
 	padding:[160,100,160,60]
+	display: currency_ip
 	BoxLayout:	
 		ConvertSpinner:
 			id:Spinner_id_one
@@ -288,11 +289,13 @@
 			on_text:currency.spinner_clicked(Spinner_id_one.text)
 
 		ConvertInput:
-			id:currecy_ip
+			id:currency_ip
+			
 		ConvertSpinner:
 			id:Spinner_id_two
 			text:"To"
-			values:['EUR','USD','GBP','JPY','INR']	
+			values:['EUR','USD','GBP','JPY','INR']
+			on_text:currency.spinner_click(Spinner_id_two.text)	
 	BoxLayout:	
 		ConvertOutput:
 		
@@ -303,50 +306,51 @@
 
 
 
-<ConverterGridlayout>:
-	rows:3
-	cols:1
-	spacing:[160,160]
-	padding:[160,100,160,60]
-	BoxLayout:	
-		ConvertSpinner:
-			id:Spinner_id_one
-			text:"From"
-			values:['Millimeters','Centimeters','Meters','Kilometers']
+# <ConverterGridlayout>:
+# 	rows:3
+# 	cols:1
+# 	spacing:[160,160]
+# 	padding:[160,100,160,60]
+# 	display: entry
+# 	BoxLayout:	
+# 		ConvertSpinner:
+# 			id:Spinner_id_one
+# 			text:"From"
+# 			values:['Millimeters','Centimeters','Meters','Kilometers']
 
-		ConvertInput:
-			id:currecy_ip
+# 		ConvertInput:
+# 			id:entry
 			
-		ConvertSpinner:
-			id:Spinner_id_two
-			text:"To"
-			values:['Millimeters','Centimeters','Meters','Kilometers']	
-	BoxLayout:	
-		ConvertOutput:
+# 		ConvertSpinner:
+# 			id:Spinner_id_two
+# 			text:"To"
+# 			values:['Millimeters','Centimeters','Meters','Kilometers']	
+# 	BoxLayout:	
+# 		ConvertOutput:
 		
-	BoxLayout:
-		ConvertOutButton:
-			text:"Convert"
+# 	BoxLayout:
+# 		ConvertOutButton:
+# 			text:"Convert"
 
 
-<TempConverterGridlayout>:
-	spacing:[160,160]
-	padding:[160,100,160,60]
-	BoxLayout:	
-		ConvertSpinner:
-			id:Spinner_id_one
-			text:"From"
-			values:['Celsius','Fahrenheit','Kelvin']
+# <TempConverterGridlayout>:
+# 	spacing:[160,160]
+# 	padding:[160,100,160,60]
+# 	BoxLayout:	
+# 		ConvertSpinner:
+# 			id:Spinner_id_one
+# 			text:"From"
+# 			values:['Celsius','Fahrenheit','Kelvin']
 
-		ConvertInput:
-			id:currecy_ip
-		ConvertSpinner:
-			id:Spinner_id_two
-			text:"To"
-			values:['Celsius','Fahrenheit','Kelvin']
-	BoxLayout:	
-		ConvertOutput:
+# 		ConvertInput:
+# 			id:currecy_ip
+# 		ConvertSpinner:
+# 			id:Spinner_id_two
+# 			text:"To"
+# 			values:['Celsius','Fahrenheit','Kelvin']
+# 	BoxLayout:	
+# 		ConvertOutput:
 		
-	BoxLayout:
-		ConvertOutButton:
-			text:"Convert"
+# 	BoxLayout:
+# 		ConvertOutButton:
+# 			text:"Convert"

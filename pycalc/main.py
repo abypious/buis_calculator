@@ -36,9 +36,12 @@ class CalcGridlayout(GridLayout):
 class CurrencyConverterGridlayout(GridLayout):
     pass
 
-    def spinner_clicked(self,values):
-        print(currecy_ip.text)
-
+    def spinner_clicked(self,text1):
+        self.text1=TextInput()
+        
+        if text1== 'EUR':
+            #self.display.text=currency_ip.text
+            print(self.text1)
     '''
     
     Spinner_id_one = ObjectProperty()
@@ -273,3 +276,70 @@ class CalConApp(App):
 
 if __name__ == '__main__':
     CalConApp().run()
+class CurrencyConverterGridlayout(GridLayout):
+    pass
+     def __init__(self, **kwargs):
+        super(CurrencyConverterGridlayout, self).__init__(**kwargs)
+        self.cols = 2
+    
+        self.input_unit = TextInput(hint_text='Input', multiline=False)
+        self.add_widget(self.input_unit)
+        self.input_dropdown = DropDown()
+        self.output_dropdown = DropDown()
+        # Define currency conversion rates
+        conversion_rates = {
+            'USD': 1.0,
+            'EUR': 0.85,  # Example conversion rate, you can add more
+            'GBP': 0.75,
+            'JPY': 110.0,
+        }
+
+        for currency in conversion_rates.keys():
+            input_button = Button(text=currency, size_hint_y=None, height=44)
+            input_button.bind(on_release=lambda btn: self.input_dropdown.select(btn.text))
+            self.input_dropdown.add_widget(input_button)
+
+            output_button = Button(text=currency, size_hint_y=None, height=44)
+            output_button.bind(on_release=lambda btn: self.output_dropdown.select(btn.text))
+            self.output_dropdown.add_widget(output_button)
+
+        self.input_unit_button = Button(text='Input', on_release=self.input_dropdown.open,height=4)
+        self.add_widget(self.input_unit_button)
+
+        self.output_unit_button = Button(text='Output', on_release=self.output_dropdown.open)
+        self.add_widget(self.output_unit_button)
+
+        self.input_dropdown.bind(on_select=lambda instance, x: setattr(self.input_unit_button, 'text', x))
+        self.output_dropdown.bind(on_select=lambda instance, x: setattr(self.output_unit_button, 'text', x))
+
+        # Define the output_unit TextInput widget
+        self.output_unit = TextInput(hint_text='Output', multiline=False)
+        self.add_widget(self.output_unit)
+
+        self.convert_button = Button(text='Convert', on_press=self.convert)
+        self.add_widget(self.convert_button)
+
+    def convert(self, instance):
+        try:
+            input_value = float(self.input_unit.text)
+            input_currency = self.input_unit_button.text
+            output_currency = self.output_unit_button.text
+            converted_value = self.perform_conversion(input_value, input_currency, output_currency)
+            self.output_unit.text = str(converted_value)
+        except ValueError:
+            self.output_unit.text = 'Invalid input'
+
+    def perform_conversion(self, input_value, input_currency, output_currency):
+        # Define conversion rates
+        conversion_rates = {
+            'USD': 1.0,
+            'EUR': 0.85,  # Example conversion rate, you can add more
+            'GBP': 0.75,
+            'INR': 110.0,
+        }
+
+        # Perform conversion
+        input_in_usd = input_value / conversion_rates[input_currency]
+        output_value = input_in_usd * conversion_rates[output_currency]
+
+        return output_value
